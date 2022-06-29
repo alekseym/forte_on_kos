@@ -26,6 +26,8 @@ Compile and run in Docker:
 
 Expected rezult:
 
+```
+
 [ROFS] Files: 5, size: 22130688 (0x0151b000).
 [ROFS] File #00: einit            - size:   614960 (0x00096230)
 [ROFS] File #01: Forte            - size: 17381064 (0x010936c8)
@@ -56,5 +58,5 @@ INFO: T#1696262624: FORTE is up and running
 INFO: T#1698970000: Using provided bootfile location set in CMake: forte.fboot
 INFO: T#1699811536: Boot file forte.fboot could not be opened. Skipping...
 
-
+```
 
