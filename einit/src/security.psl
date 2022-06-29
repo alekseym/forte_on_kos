@@ -1,0 +1,30 @@
+use trusted._
+
+use EDL forte.Forte
+use EDL vfs.NetVfs
+use EDL env.Env
+
+/**
+ * This instruction enables to start up and initialize entities.
+ */
+
+execute {
+    grant()
+}
+
+/* Request messages allowed. */
+request {
+    grant ()
+}
+
+/* Response messages allowed. */
+response {
+    grant ()
+}
+
+/* Calls to the security interface are ignored. */
+security {
+    grant ()
+}
+
+
