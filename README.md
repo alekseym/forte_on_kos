@@ -9,8 +9,6 @@ cd forte_on_kos
 
 git submodule update --init --recursive
 
-git apply --whitespace=fix ./forte_patch/forte4kos.patch
-
 
 Compile docker image
 
