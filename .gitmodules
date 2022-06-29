@@ -1,0 +1,3 @@
+[submodule "forte"]
+	path = forte
+	url = https://github.com/alekseym/forte.git
