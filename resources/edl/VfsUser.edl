@@ -1,4 +1,4 @@
-entity vfs.NetVfs
+entity vfs_user.VfsUser
 
 components
 {

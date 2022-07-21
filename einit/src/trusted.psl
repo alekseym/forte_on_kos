@@ -20,6 +20,14 @@ execute src=kl.core.Core, dst=Einit
 }
 
 /**
+ * This instruction enables to start up and initialize entities specified in file init.yaml.in.
+ */
+execute src=Einit
+{
+    grant()
+}
+
+/**
  * This code enables to send requests from Einit entity to KOS kernel and get
  * responses. It makes able to use system calls by Einit.
  */

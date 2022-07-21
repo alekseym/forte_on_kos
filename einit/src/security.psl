@@ -1,8 +1,9 @@
 use trusted._
 
 use EDL forte.Forte
-use EDL vfs.NetVfs
-use EDL env.Env
+use EDL vfs_user.VfsUser
+
+
 
 /**
  * This instruction enables to start up and initialize entities.
@@ -27,4 +28,39 @@ security {
     grant ()
 }
 
+
+/**
+ * This code enables to send requests from entities to KOS kernel and get
+ * responses. It makes able to use system calls by entities.
+ */
+
+request src=vfs_user.VfsUser, dst=kl.core.Core
+{
+    grant()
+}
+
+response src=kl.core.Core, dst=vfs_user.VfsUser
+{
+    grant()
+}
+
+request src=forte.Forte, dst=kl.core.Core
+{
+    grant()
+}
+
+response src=kl.core.Core, dst=forte.Forte
+{
+    grant()
+}
+
+request src=forte.Forte, dst=vfs_user.VfsUser
+{
+    grant()
+}
+
+response src=vfs_user.VfsUser, dst=forte.Forte
+{
+    grant()
+}
 
