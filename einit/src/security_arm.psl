@@ -1,1 +1,51 @@
 use security._
+
+/* Include internal and external security policies. */
+/* use internal._ */
+use external._
+
+/* Only for arm or aarch64 platforms. */
+use EDL kl.drivers.SDCard
+use EDL kl.drivers.BSP
+
+request src=kl.drivers.SDCard, dst=kl.drivers.BSP
+{
+    grant()
+}
+
+response src=kl.drivers.BSP, dst=kl.drivers.SDCard
+{
+    grant()
+}
+
+request src=kl.drivers.BSP, dst=kl.core.Core
+{
+    grant()
+}
+
+response src=kl.core.Core, dst=kl.drivers.BSP
+{
+    grant()
+}
+
+request src=kl.drivers.SDCard, dst=kl.core.Core
+{
+    grant()
+}
+
+response src=kl.core.Core, dst=kl.drivers.SDCard
+{
+    grant()
+}
+
+request src=vfs_user.VfsUser, dst=kl.drivers.SDCard
+{
+    grant()
+}
+
+response src=kl.drivers.SDCard, dst=vfs_user.VfsUser
+{
+    grant()
+}
+
+

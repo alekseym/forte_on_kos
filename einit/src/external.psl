@@ -1,0 +1,60 @@
+use nk.base._
+
+/**
+ * This code includes EDL descriptions of correspondig external
+ * (non-provided by SDK) entities.
+ */
+use EDL forte.Forte
+use EDL vfs_user.VfsUser
+
+/**
+ * Next code enables to send requests from external entities to KOS kernel
+ * and get responses. It makes able to use system calls by external entities.
+ * Caution! This rule is strictly for early-stage development as it
+ * exposes a variety of system services that can be invoked by an attacker.
+ * An audit must be performed to determine minimal set of methods to allow.
+ */
+request src=forte.Forte, dst=kl.core.Core
+{
+    grant ()
+}
+
+response src=kl.core.Core, dst=forte.Forte
+{
+    grant ()
+}
+
+
+request src=vfs_user.VfsUser, dst=kl.core.Core
+{
+    grant ()
+}
+
+response src=kl.core.Core, dst=vfs_user.VfsUser
+{
+    grant ()
+}
+
+
+/**
+ * Next policies enables interactions between external entities.
+ */
+request src=forte.Forte, dst=vfs_user.VfsUser
+{
+    grant ()
+}
+
+response src=vfs_user.VfsUser, dst=forte.Forte
+{
+    grant ()
+}
+
+request src=forte.Forte, dst=vfs_user.VfsUser, endpoint=vfs.server, method=Mount
+{
+    grant ()
+}
+
+response src=vfs_user.VfsUser, dst=forte.Forte, endpoint=vfs.server, method=Mount
+{
+    grant ()
+}
